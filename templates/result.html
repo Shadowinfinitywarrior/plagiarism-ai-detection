@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Results</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Results</h1>
+        <p>Plagiarism Percentage: {{ plagiarism }}%</p>
+        <p>AI Content Percentage: {{ ai }}%</p>
+        
+        <h2>Plagiarized Lines</h2>
+        <ul>
+            {% for line in plagiarism_result['plagiarized_lines'] %}
+            <li>{{ line }}</li>
+            {% endfor %}
+        </ul>
+        
+        <h2>AI Generated Lines</h2>
+        <ul>
+            {% for line in ai_result['ai_generated_lines'] %}
+            <li>{{ line }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
